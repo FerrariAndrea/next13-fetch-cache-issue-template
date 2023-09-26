@@ -35,7 +35,7 @@ Failed to set fetch cache http://localhost:4000/test_req TypeError: fetch failed
 ```
 
 - The issue is not present if the cache of the fetch is disabled.
-- The issue is present if the cache of the fetch is enabled, and the response payload is approximately more than: 69KB (I'm not sure if my calculations are correct)
+- The issue is present if the cache of the fetch is enabled, and the response payload is approximately more than: 69KB
 - Tested with different computers the error occurs with different BASE_SIZE values, so if you don't see the error please increase the BASE_SIZE.
 
 # How to use that repo
@@ -65,8 +65,8 @@ Failed to set fetch cache http://localhost:4000/test_req TypeError: fetch failed
 - REVALIDATE --> Enable/disable fetch cache
 
 The JSON response payload size.
-The size real request size increases by: id*BASE_SIZE.
-Considering size=id*BASE_SIZE, the size number will generate a JSON with 'size' field.
+The real request size increases by: id*BASE_SIZE.
+Considering size=id*BASE_SIZE, the size number will generate a JSON with 'size' fields plus the "id" field.
 Considering x as the current field in [0,'size'].
 Every field x will be a string with x chars.
 Example:
@@ -74,7 +74,7 @@ Example:
 ```
 id=2;
 BASE_SIZE=2;
-size=4;
+size=id*BASE_SIZE=4;
 result:{
     id:2,
     test_0:"x",
