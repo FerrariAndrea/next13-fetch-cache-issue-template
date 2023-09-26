@@ -1,4 +1,8 @@
-import {TEST_PAGE_COUNT,BACKEND_URL} from '../config'
+import {TEST_PAGE_COUNT,
+  BACKEND_URL,
+  BASE_SIZE,
+  REVALIDATE
+} from '../../config'
 
 async function getData(id) {
     let headers = {
@@ -8,8 +12,12 @@ async function getData(id) {
     const opt = {
         method: 'POST',
         headers,
-        body: JSON.stringify({id}),
-        next:{ revalidate: 3600 }
+        body: JSON.stringify({id,size:BASE_SIZE*Number(id)}),
+    }
+    if(REVALIDATE){
+      opt.next={ revalidate: 3600 }
+    }else{
+      opt.cache = 'no-store'
     }
     const res = await fetch(BACKEND_URL, opt)
     if (!res.ok) {
@@ -21,7 +29,7 @@ async function getData(id) {
 export async function generateStaticParams() {
   const paths = []
   for(let x =0;x<TEST_PAGE_COUNT;x++){
-    paths.push(x.toString());
+    paths.push({ id: x.toString() });
   }
   return paths
 }
