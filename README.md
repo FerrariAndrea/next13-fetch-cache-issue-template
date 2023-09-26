@@ -9,14 +9,14 @@ Repo structure:
 
 # Important to know
 
-- the next.js pages 'my-app\app\test\[id]\page.jsx' is using server side rendering.
-- the fetch used to populate the next.js test pages uses the revalidate option, so the request should be stored in the next.js cache.
-- the test next.js pages will request data to the backend, and every request will have a different response payload size.
+- the Next.js pages 'my-app\app\test\[id]\page.jsx' is using server side rendering.
+- the fetch used to populate the Next.js test pages uses the revalidate option, so the request should be stored in the Next.js cache.
+- the test Next.js pages will request data to the backend, and every request will have a different response payload size.
 - the payload size will increase following the increase of the 'id' requested
 
 # Next.js Issue
 
-If the payload is too big, an issue is coaming out:
+If the payload is too big, an issue is coming out:
 
 ```
 Failed to set fetch cache http://localhost:4000/test_req TypeError: fetch failed
@@ -35,7 +35,8 @@ Failed to set fetch cache http://localhost:4000/test_req TypeError: fetch failed
 ```
 
 - The issue is not present if the cache of the fetch is disabled.
-- The issue is present if the cache of the fetch is enabled, and the response payload is approximately more than: 69KB (I'm not sure my calculations are correct)
+- The issue is present if the cache of the fetch is enabled, and the response payload is approximately more than: 69KB (I'm not sure if my calculations are correct)
+- Tested with different computers the error occurs with different BASE_SIZE values, so if you don't see the error please increase the BASE_SIZE.
 
 # How to use that repo
 
@@ -43,20 +44,21 @@ Failed to set fetch cache http://localhost:4000/test_req TypeError: fetch failed
 
 - cd backend
 - yarn install
+- cd ..
 - cd my-app
 - yarn install
 
 ## RUN TEST USE-CASE
 
-- cd backend
+- open a new terminal inside the backend folder
 - node server.js
-- cd my-app
+- open a new terminal inside my-app folder
 - yarn build
 
 ## SETTINGS, how to switch between different use-case
 
 - you should not change the backend
-- in order to change the use-case, you should only change that file: 'my-app\app\config.js'
+- in order to change the use-case, you should only change the file: 'my-app\app\config.js'
 
 - TEST_PAGE_COUNT --> How many pages to build
 - BASE_SIZE --> The JSON response payload size

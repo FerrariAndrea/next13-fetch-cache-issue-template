@@ -1,5 +1,5 @@
 //How many page to build
-export const TEST_PAGE_COUNT = 200;
+export const TEST_PAGE_COUNT = 200
 /*
 The JSON response payload size.
 The size real request size increas by: id*BASE_SIZE.
@@ -18,12 +18,12 @@ result:{
     test_3:"xxxx"
 }
 */
-export const BASE_SIZE = 2;
+export const BASE_SIZE = 20
 
-export const BACKEND_URL = "http://localhost:4000/test_req";
+export const BACKEND_URL = 'http://localhost:4000/test_req'
 
 /*
 if REVALIDATE is true, the fetch will use the cache and the revalidate
 if REVALIDATE is false, the fetch will not use the cache
 */
-export const REVALIDATE = true;
+export const REVALIDATE = true
