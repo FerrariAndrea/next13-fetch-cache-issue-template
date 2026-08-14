@@ -1,3 +1,8 @@
+### WARNING
+This repository is now Archived; it was used to flag a next13 bug, now probably not relevant anymore.
+This repository contains old code and therefore old npm with vulnerabilities.
+###
+
 # next13-fetch-cache-issue-template
 
 This repo is made in order to help Next.js to replicate this cache issue
